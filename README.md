@@ -1,2 +1,5 @@
 # freeCodeCamp-Projects
-A collection of all my projects that were required to gain my certificates
+
+## Description
+
+This is a curated collection of all the hands-on projects I completed to earn my freeCodeCamp certifications.

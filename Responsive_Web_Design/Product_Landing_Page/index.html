@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Landing Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header id="header">
+      <h1>Product Landing Page</h1>
+      <img id="header-img" alt="Company logo" src="http://something.com" />
+      <nav id="nav-bar">
+        <a class="nav-link" href="#email">Email</a>
+        <a class="nav-link" href="#form">Form</a>
+        <a class="nav-link" href="#video">Video</a>
+      </nav>
+    </header>
+
+    <main>
+      <video id="video" controls>
+        <source src="" type="video/mp4" />
+        <p>Your browser does not support the video tag.</p>
+      </video>
+
+      <form id="form" action="https://www.freecodecamp.com/email-submit">
+        <label for="email" class="sr-only">Email address</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+        <input type="submit" id="submit" value="Submit" />
+      </form>
+    </main>
+  </body>
+</html>
