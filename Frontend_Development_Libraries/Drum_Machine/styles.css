@@ -2,7 +2,7 @@
   --bg-body: #121212;
   --bg-machine: #1e1e24;
   --bg-pad: #2b2b36;
-  --bg-pad-active: #ff0055; /* Hot pink for high-energy contrast */
+  --bg-pad-active: #ff0055;
   --text-main: #e0e0e0;
   --text-accent: #ff0055;
   --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -121,3 +121,4 @@ h1 {
     justify-content: center;
   }
 }
+
