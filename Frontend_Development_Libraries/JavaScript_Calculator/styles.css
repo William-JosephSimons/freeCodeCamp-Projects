@@ -1,0 +1,225 @@
+:root {
+  --bg-body: #121212;
+  --bg-calc: #1e1e24;
+  --bg-screen: #000000;
+  --text-main: #e0e0e0;
+  --text-dim: #6b6b6b;
+
+  --btn-num: #2b2b33;
+  --btn-num-hover: #3a3a45;
+  --btn-op: #40404f;
+  --btn-op-hover: #505063;
+
+  --accent-color: #00e5ff;
+  --accent-text: #003b42;
+  --danger-color: #ff5252;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --font-main: "SF Mono", "Segoe UI Mono", "Roboto Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.calculator-app {
+  background: var(--bg-calc);
+  width: 360px;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.display-screen {
+  background: var(--bg-screen);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+}
+
+#currentNumber {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  opacity: 0.7;
+  min-height: 1.2em;
+  margin-bottom: 4px;
+  overflow-wrap: break-word;
+}
+
+#currentNumber strong {
+  display: none;
+}
+
+#display {
+  font-size: 2.5rem;
+  color: var(--text-main);
+  overflow-wrap: break-word;
+  line-height: 1;
+}
+
+.button-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 65px);
+  gap: 12px;
+
+  grid-template-areas:
+    "ac ac div mul"
+    "seven eight nine sub"
+    "four five six add"
+    "one two three eq"
+    "zero zero dec eq";
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button {
+  background: var(--btn-num);
+  color: var(--text-main);
+}
+button:hover {
+  background: var(--btn-num-hover);
+}
+
+#divide,
+#multiply,
+#subtract,
+#add {
+  background: var(--btn-op);
+  color: var(--accent-color);
+}
+#divide:hover,
+#multiply:hover,
+#subtract:hover,
+#add:hover {
+  background: var(--btn-op-hover);
+}
+
+#clear {
+  grid-area: ac;
+  background: rgba(255, 82, 82, 0.15);
+  color: var(--danger-color);
+  font-weight: bold;
+}
+#clear:hover {
+  background: rgba(255, 82, 82, 0.25);
+}
+
+#equals {
+  grid-area: eq;
+  background: var(--accent-color);
+  color: var(--accent-text);
+  font-weight: bold;
+}
+#equals:hover {
+  filter: brightness(1.1);
+}
+
+#zero {
+  grid-area: zero;
+}
+#decimal {
+  grid-area: dec;
+}
+#one {
+  grid-area: one;
+}
+#two {
+  grid-area: two;
+}
+#three {
+  grid-area: three;
+}
+#four {
+  grid-area: four;
+}
+#five {
+  grid-area: five;
+}
+#six {
+  grid-area: six;
+}
+#seven {
+  grid-area: seven;
+}
+#eight {
+  grid-area: eight;
+}
+#nine {
+  grid-area: nine;
+}
+#add {
+  grid-area: add;
+}
+#subtract {
+  grid-area: sub;
+}
+#multiply {
+  grid-area: mul;
+}
+#divide {
+  grid-area: div;
+}
+
+button:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+@media (max-width: 400px) {
+  .calculator-app {
+    height: 100vh;
+    max-width: 100%;
+    border-radius: 0;
+    justify-content: center;
+  }
+  .button-panel {
+    grid-template-rows: repeat(5, 1fr);
+    height: 60vh;
+  }
+}
