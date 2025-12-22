@@ -1,0 +1,219 @@
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-blue: #38bdf8;
+  --accent-pink: #f472b6;
+  --accent-green: #4ade80;
+  --danger: #ef4444;
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-stack);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.clock-container {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5),
+    0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.settings-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.setting-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.length-display {
+  font-size: 1.5rem;
+  font-weight: 700;
+  min-width: 2ch;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.timer-wrapper {
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--accent-blue);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+}
+
+.timer-wrapper.break-mode {
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 30px rgba(244, 114, 182, 0.2);
+}
+
+.timer-wrapper.danger-mode {
+  border-color: var(--danger);
+  animation: pulse 2s infinite;
+}
+
+#timer-label {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+#time-left {
+  font-size: 5rem;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.controls-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.btn-large {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 12px;
+}
+
+#start_stop {
+  background: var(--accent-blue);
+  color: var(--bg-color);
+}
+#start_stop:hover {
+  background: #7dd3fc;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+#reset {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-muted);
+}
+#reset:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+@media (max-width: 450px) {
+  .clock-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  .timer-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+  #time-left {
+    font-size: 3.5rem;
+  }
+}
